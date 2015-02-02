@@ -14,5 +14,8 @@ sudo -E easy_install pip
 pip install lxml
 pip install requests
 ```
+Also, install pyenchant for collaboration with the English Dictionary. 
 
+The youtube.py has to be still modified further. Some pointers are given in the following link.
 
+http://www.ianbicking.org/blog/2008/12/lxml-an-underappreciated-web-scraping-library.html

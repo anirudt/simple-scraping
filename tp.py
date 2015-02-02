@@ -34,7 +34,7 @@ def getLinks():
   i = 0  
   for e in text_links:
     e = e.lower()
-    if(e.find('qualcomm')!=-1):
+    if(e.find('american')!=-1):
       print e
       hx = lxml.html.document_fromstring(requests.get("http://tp.iitkgp.ernet.in/notice"+links_tmp[i]).content)
       print links_tmp[i]
