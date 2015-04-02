@@ -23,10 +23,11 @@ def getLinks():
   download_link = "http://www.vidtomp3.com/"
   down = lxml.html.document_fromstring(requests.get(download_link).content)
   down.forms[0].fields['url'] = download_link  
-  result = lxml.html.parse(lxml.html.submit_form(down.forms[0])).getroot()
+  
+#  result = lxml.html.parse(lxml.html.submit_form(down.forms[0])).getroot()
 #  print form.inputs
 #  form.inputs.type['text'] = 'Anirud'
 #  print form.inputs.type['text']
-  print result
+#  print result
 
 

@@ -5,11 +5,14 @@ import sys
 import requests
 import lxml.html
 
-def getLinks():
+
+def getLinks(w):
+  f = open('output.txt','w')
+  f.write(w+'\n')
   print "Getting links:\n"
   links = []
   text_links = []
-  for j in range (51,100):
+  for j in range (75,125):
     hxs = lxml.html.document_fromstring(requests.get("http://tp.iitkgp.ernet.in/notice/index.php?page=" + str(j)).content)
     try:
       l = hxs.xpath('//a[@class="notice"]/@href')
@@ -26,20 +29,24 @@ def getLinks():
   for e in links:
     if(e[0]=='/'):
       links_tmp.append(e);
-      continue
+      continue  
     else:
       links_tmp.append('/' + e)
-#  print text_links  
+  #print text_links  
   data = []
   i = 0  
   for e in text_links:
     e = e.lower()
-    if(e.find('american')!=-1):
+    if(e.find(w)!=-1):
       print e
       hx = lxml.html.document_fromstring(requests.get("http://tp.iitkgp.ernet.in/notice"+links_tmp[i]).content)
       print links_tmp[i]
+      f.write("http://tp.iitkgp.ernet.in/notice"+links_tmp[i]+'\n') 
       tmp = hx.xpath('//div/text()')
       data.append(tmp) 
     i = i + 1 
+  print data
   for e in data:
-    print e  
+    print e 
+    f.write("%s\n" % e)
+  f.close()
