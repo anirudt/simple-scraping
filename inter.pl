@@ -22,8 +22,11 @@ while(<$in>)
 	}			
 	else
 	{}
-	
-
+	#Try some spatially local regular expressions.
+	if(/rs\.*\w*(\d+\.*\,*\d+\.*\,*\d+\.*\,*)/)
+	{
+		print $_;	
+	}
 
 
 
